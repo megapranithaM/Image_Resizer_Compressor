@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Image Resizer JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <!-- Sidebar Toggle Button -->
+    <button id="sidebar-toggle" class="sidebar-toggle-btn">☰</button>
+
+    <!-- Sidebar Container -->
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-content">
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://unsplash.com/">Search</a></li>
+          <li><a href="https://www.google.co.in/">Google</a></li>
+          <li><a href="galary.html">Description</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bubbles"></div>
+    <!-- Aurora Text Effect -->
+    <div class="aurora-text">
+      <h1>Image Resizer & Compressor</h1>
+    </div>
+    <div class="container">
+      <div class="upload-section">
+        <label for="image-upload" class="upload-btn">
+          <input type="file" accept="image/*" id="image-upload" hidden>
+          <img src="https://cdn-icons-png.flaticon.com/512/17808/17808359.png" alt="Upload Icon">
+          Choose Image
+        </label>
+        <p>Upload File To Compress and Resize</p>
+      </div>
+      <div class="resize-section">
+        <div class="sizes">
+          <div class="input-group">
+            <label for="width">Width</label>
+            <input type="number" id="width">
+          </div>
+          <div class="input-group">
+            <label for="height">Height</label>
+            <input type="number" id="height">
+          </div>
+        </div>
+        <div class="options">
+          <div class="checkbox-group">
+            <input type="checkbox" id="ratio" checked>
+            <label for="ratio">Aspect Ratio</label>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="quality">
+            <label for="quality">Quality Reducing</label>
+          </div>
+        </div>
+        <button class="download-btn">Download Resized Image</button>
+      </div>
+    </div>
+    <div class="about-section">
+      <h2>About Image Resizer</h2>
+      <p>
+        Welcome to Image Resizer, a free and easy-to-use tool for resizing and compressing your images.
+        This tool allows you to upload your image, adjust its dimensions, and even reduce its quality for optimized performance.
+        Designed with simplicity and elegance, it ensures that anyone can resize their images effortlessly.
+      </p>
+      <p>
+        Whether you’re preparing images for a website, social media, or personal use, our tool is here to help. 
+        With responsive design and enhanced features like aspect ratio locking and quality control, we ensure you get the best output for your needs.
+      </p>
+      <p>Start resizing your images today!</p>
+    </div>
+    <div class="particle-container"></div>  <!-- Particle container -->
+    <script src="script.js"></script>
+  </body>
+</html>

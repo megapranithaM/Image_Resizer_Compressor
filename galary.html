@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Image Gallery with Glass Effect</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-size: cover;
+            background-position: center;
+            flex-direction: column;
+            animation: gradientShift 15s ease infinite; /* Background animation */
+        }
+
+        /* Keyframes for background gradient animation */
+        @keyframes gradientShift {
+            0% {
+                background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00);
+            }
+            25% {
+                background: linear-gradient(45deg, #00ff00, #0000ff, #ff00ff, #ffff00, #ff0000);
+            }
+            50% {
+                background: linear-gradient(45deg, #0000ff, #ff00ff, #ffff00, #ff0000, #00ff00);
+            }
+            75% {
+                background: linear-gradient(45deg, #ff00ff, #ffff00, #ff0000, #00ff00, #0000ff);
+            }
+            100% {
+                background: linear-gradient(45deg, #ffff00, #ff0000, #00ff00, #0000ff, #ff00ff);
+            }
+        }
+
+        .gallery {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            perspective: 1000px; /* Create depth for 3D rotation */
+            width: 80%;
+            height: 400px;
+            margin-bottom: 10px; /* Reduced gap */
+        }
+
+        .image {
+            width: 300px;
+            height: 200px;
+            margin: 10px; /* Reduced margin */
+            position: relative;
+            transition: transform 1s ease, opacity 0.5s ease;
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            overflow: hidden;
+
+            /* Glass Effect */
+            backdrop-filter: blur(15px); /* Frosted glass effect */
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent glass-like background */
+
+            /* Glowing Border */
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+            border: 3px solid rgba(255, 0, 0, 0.8); /* Semi-transparent red border */
+
+            animation: rotate3D 5s infinite linear;
+        }
+
+        .image:hover {
+            transform: scale(1.1); /* Scale up on hover */
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.7);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            filter: hue-rotate(180deg); /* Aurora effect on hover */
+        }
+
+        /* Keyframes for continuous 3D rotation */
+        @keyframes rotate3D {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            25% {
+                transform: rotateY(45deg) rotateX(10deg);
+            }
+            50% {
+                transform: rotateY(90deg) rotateX(0deg);
+            }
+            75% {
+                transform: rotateY(135deg) rotateX(-10deg);
+            }
+            100% {
+                transform: rotateY(180deg) rotateX(0deg);
+            }
+        }
+
+        /* Background images */
+        .image7 {
+            background-image: url('https://cdn.soft112.com/nature-qhd-wallpapers/00/00/0H/3M/00000H3M0W/pad_screenshot_3.jpg');
+        }
+        .image8 {
+            background-image: url('https://i.redd.it/c3uhsgo1vx541.jpg');
+        }
+        .image9 {
+            background-image: url('https://4kwallpapers.com/images/wallpapers/autumn-trees-lake-mountain-range-day-time-landscape-long-4480x2520-4920.jpg');
+        }
+        .image10 {
+            background-image: url('https://wallpapers.com/images/hd/4k-mountain-l3f04sogeaabr5h0.jpg');
+        }
+        .image11 {
+            background-image: url('https://i.pinimg.com/736x/6d/1a/cb/6d1acb72a8fc72aa7780918cd458df5b.jpg');
+        }
+        .image12 {
+            background-image: url('https://wallup.net/wp-content/uploads/2016/01/188199-nature-sunset-mountain-lake-forest-landscape-water-748x521.jpg');
+        }
+
+        /* About section styles */
+        .about-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 30px 20px; /* Reduced padding */
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 10px auto; /* Reduced margin */
+            border-radius: 10px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px; /* Reduced margin */
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin-bottom: 10px; /* Reduced margin */
+            text-align: justify; /* Justify the text */
+        }
+
+        /* Text color change and multi-color gradient effect on hover */
+        .about-section h2:hover,
+        .about-section p:hover {
+            color: transparent; /* Make text transparent */
+            background-image: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00); /* Gradient colors */
+            background-clip: text; /* Apply gradient to text */
+            -webkit-background-clip: text; /* Safari support */
+            animation: colorShift 3s infinite; /* Animate the gradient color shift */
+        }
+
+        /* Keyframes for multi-color shifting effect */
+        @keyframes colorShift {
+            0% {
+                background-image: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00);
+            }
+            25% {
+                background-image: linear-gradient(45deg, #ff00ff, #ffff00, #ff0000, #00ff00, #0000ff);
+            }
+            50% {
+                background-image: linear-gradient(45deg, #0000ff, #ff00ff, #ffff00, #ff0000, #00ff00);
+            }
+            75% {
+                background-image: linear-gradient(45deg, #ffff00, #ff0000, #00ff00, #0000ff, #ff00ff);
+            }
+            100% {
+                background-image: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff00ff, #ffff00);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="gallery">
+    <div class="image image7"></div>
+    <div class="image image8"></div>
+    <div class="image image9"></div>
+    <div class="image image10"></div>
+    <div class="image image11"></div>
+    <div class="image image12"></div>
+</div>
+
+<!-- About Section -->
+<div class="about-section">
+    <h2>How It Works</h2>
+    <p>
+        Upload the Image: Click the "Choose Image" button to upload your image file. Ensure the image is in a supported format like PNG or JPEG.
+    </p>
+    <p>
+        Set Dimensions: Enter the desired width and height in the input fields. If the "Aspect Ratio" option is enabled, the tool will automatically adjust one dimension to maintain the original proportions, preventing distortion.
+    </p>
+    <p>
+        Enable or Disable Quality Reduction: Check the "Quality Reducing" box if you want to reduce the file size further by compressing the image. This option is helpful for optimizing images for web use.
+    </p>
+    <p>
+        Preview and Download: Once adjustments are made, click "Download Resized Image" to generate and save the updated image. The resized and/or compressed image will reflect the settings you've configured.
+    </p>
+</div>
+
+</body>
+</html>

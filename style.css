@@ -1,0 +1,419 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease; /* Smooth sliding effect */
+    z-index: 100;
+    padding: 20px;
+}
+
+.sidebar.active {
+    left: 0; /* Show sidebar */
+}
+
+.sidebar-content {
+    color: white;
+}
+
+.sidebar h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    color: #ff0077; /* Highlight link on hover */
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-toggle-btn:hover {
+    transform: scale(1.2);
+}
+
+/* Bubble Effect */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+    z-index: 1;
+    overflow: hidden;
+}
+
+.bubbles::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: move-bubbles 20s linear infinite;
+}
+
+@keyframes move-bubbles {
+    from {
+        transform: translate(-50%, -50%);
+    }
+    to {
+        transform: translate(50%, 50%);
+    }
+}
+
+/* Particle Container */
+.particle-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Particle Styling */
+.particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #ff0077;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    animation: particle-animation 1s ease-out infinite;
+}
+
+@keyframes particle-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+/* Aurora Text Effect */
+.aurora-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #ff0077, #7700ff, #00bbff, #00ff77, #ffff00, #ff0077);
+    background-size: 300%;
+    color: transparent;
+    -webkit-background-clip: text;
+    animation: aurora-glow 5s linear infinite;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+/* Aurora Glow Animation */
+@keyframes aurora-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Main Container */
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Upload Section */
+.upload-section {
+    margin-bottom: 30px;
+}
+
+.upload-btn {
+    display: inline-block;
+    background: #ff0077;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn img {
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 50px;
+}
+
+.upload-btn:hover {
+    background: #b21a0d;
+    transform: scale(1.05);
+}
+
+.upload-section p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Resize Section */
+.sizes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    width: 48%;
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #ddd;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    border-color: #ff0077;
+    outline: none;
+}
+
+/* Options Section */
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.checkbox-group label {
+    color: #ddd;
+    font-size: 16px;
+}
+
+/* Download Button with Spark/Star Effect */
+.download-btn {
+    position: relative;
+    background: #00bbff;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #ff0077;
+    transform: scale(1.05);
+}
+
+/* Star Sparkle Effect */
+.download-btn:hover::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: star-sparkle 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes star-sparkle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/* About Section */
+.about-section {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #ff0077;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: #ccc;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sizes {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .options {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Additional adjustments for mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; /* Reduce font size for small screens */
+        padding: 10px; /* Add padding for better spacing */
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .sidebar {
+        width: 200px; /* Reduce sidebar width */
+    }
+
+    .sidebar h3 {
+        font-size: 20px;
+    }
+
+    .sidebar ul li a {
+        font-size: 16px;
+    }
+
+    .sidebar-toggle-btn {
+        font-size: 24px; /* Smaller button for toggle */
+        top: 10px;
+        left: 10px;
+    }
+
+    .upload-btn {
+        padding: 12px 20px; /* Adjust button size for mobile */
+        font-size: 16px;
+    }
+
+    .download-btn {
+        padding: 12px 24px; /* Adjust download button size */
+        font-size: 16px;
+    }
+
+    .about-section h2 {
+        font-size: 20px;
+    }
+
+    .about-section p {
+        font-size: 14px; /* Adjust text size for mobile */
+    }
+
+    .aurora-text h1 {
+        font-size: 36px; /* Smaller heading for mobile */
+    }
+}
