@@ -26,6 +26,6 @@ PHP and GD Library for efficient image processing. 🛠️
 Optimized for all screen sizes to ensure accessibility across devices. 📱
 
 🌐 Live Demo:
-👉 https://megapranitham.github.io/image-resizer-compressor/
+👉 https://megapranitham.github.io/Image_Resizer_Compressor/
 
 
